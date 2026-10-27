@@ -1,12 +1,14 @@
-# FRAS Demo — Polo Studios
+# FRAS — Presentation-aligned interactive demo
 
-Prototipo académico interactivo del Facial Recognition Attendance System (FRAS).
+A static browser prototype of the screens shown in **FRAS Presentation #2**, pages 9–18.
 
-## Uso
-Abre `index.html` en el navegador. Inicia una sesión, simula reconocimiento de estudiantes y exporta CSV.
+## Screens
+- Role-select demo login (not secure authentication)
+- Professor: My Sections, Open Session, Review, Reports
+- Administrator: Dashboard, Facial Data, Course Data, User Accounts, Backups
 
-## Alcance
-**No implementa reconocimiento facial real.** No recopila ni almacena datos biométricos. Los estudiantes son ficticios y los datos se mantienen solo durante la sesión de la página.
+## Scope
+All people and courses are fictional. Recognition, image capture, enrollment, synchronization, accounts, and backups are **simulated in the browser**. No real camera, biometric storage, authentication, backend, or university integration. Reports export CSV; the browser print dialog can save PDF.
 
-## Autores
-Ricardo J. López Ortiz y Miguel A. de Jesús Rosa · UAGM Gurabo · Polo Studios.
+## Authors
+Ricardo J. Lopez Ortiz and Miguel A. de Jesus Rosa · CPEN 491 · Universidad Ana G. Méndez, Gurabo.
