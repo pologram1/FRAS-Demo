@@ -1,54 +1,68 @@
 # FRAS — Facial Recognition Attendance System
 
-An interactive, **front-end-only prototype** of the attendance system designed for the CPEN 491 Senior Design project at Universidad Ana G. Méndez, Gurabo.
+**Interactive interface prototype for professor and administrator attendance workflows.**  
+Collaborative academic project by **Miguel A. De Jesus** and **Ricardo J. Lopez Ortiz** · CPEN 491 · Universidad Ana G. Méndez, Gurabo.
 
-**[Open the live demo](https://pologram1.github.io/FRAS-Demo/)**
+[Open the prototype](https://pologram1.github.io/FRAS-Demo/) · [Project context](https://pologram1.github.io/POLO-TECH/projects.html#fras)
 
-## Quick start
+[![Static prototype checks](https://github.com/pologram1/FRAS-Demo/actions/workflows/validate.yml/badge.svg)](https://github.com/pologram1/FRAS-Demo/actions/workflows/validate.yml)
 
-1. Clone or download this repository.
-2. Open `index.html` in a modern browser (no installation or build step).
-3. Enter any demo email/password and select **Professor** or **Administrator**. The login is a role selector, **not authentication**.
-4. As Professor, open **Sessions**, start a session, simulate recognition or flag a student, then open **Review attendance**.
+![FRAS professor attendance session](docs/images/preview.jpg)
 
-## Project structure
+## What to explore
 
-```text
-FRAS-Demo/
-├── index.html            # Semantic page shell, login and app containers
-├── css/
-│   └── styles.css        # Layout, responsive styles, cards and tables
-├── js/
-│   └── app.js            # State, rendering, navigation and demo actions
-├── docs/
-│   └── ARCHITECTURE.md   # UI flow, implementation notes and limitations
-└── README.md             # Project overview and local setup
+FRAS demonstrates the interface from the senior-design presentation, including professor sessions and administrator management. It lets reviewers walk through attendance decisions without camera hardware or a university database.
+
+- **Professor:** assigned sections, open/close a session, simulate recognition, flag uncertain results, review and correct attendance, and export reports.
+- **Administrator:** dashboard, simulated facial enrollment, course synchronization, user-account management, and backup snapshots.
+- **Reports:** CSV download and browser print/PDF output.
+
+## Try the workflow
+
+1. Open the prototype, choose **Professor**, and press **Log in**. Credentials are not validated.
+2. Start a session for the active section.
+3. Use **Recognize** or **Flag low confidence** to simulate a result.
+4. Open **Review attendance** inside Sessions and confirm, reject, or correct a record.
+5. Close the session and explore Reports.
+6. Log out and choose **Administrator** to inspect its management screens.
+
+All people/courses are fictional. Capture, recognition, reference images, enrollment, synchronization, accounts, and backups are simulated. There is **no real facial recognition, live camera, biometric storage, university integration, or secure authentication**. Runtime changes are held in page memory and reset on reload; downloaded report/backup files are independent exports.
+
+## Architecture and code map
+
+| Path | Responsibility |
+| --- | --- |
+| `index.html` | Self-contained HTML shell, styling, rendering functions, fictional records, and client-side actions. |
+| `scripts/check-static.mjs` | Checks the entry page and compiles inline JavaScript syntax without executing the app. |
+| `.github/workflows/validate.yml` | Runs static prototype checks on pushes and pull requests. |
+| `docs/images/preview.jpg` | Screenshot of the deployed prototype. |
+
+The prototype uses browser-side state and DOM rendering. It is deliberately independent of the eventual recognition pipeline, database, and hardware selection. The current self-contained structure makes it straightforward to run and compare against the presentation; extracting domain/state modules is a future step if the prototype grows.
+
+## Run locally
+
+```sh
+git clone https://github.com/pologram1/FRAS-Demo.git
+cd FRAS-Demo
+python3 -m http.server 8000
 ```
 
-## Features
+Open `http://localhost:8000`. No dependency installation or backend is required.
 
-| Professor | Administrator |
-| --- | --- |
-| My Sections / Dashboard | System dashboard |
-| Start and close attendance sessions | Simulated facial-data enrollment |
-| Simulated recognition and flagged matches | Fictional course roster and sync |
-| Session Overview and Review Attendance tabs | Simulated user account management |
-| Manual corrections and attendance reports | Local demo backup snapshots |
-| CSV export and print-to-PDF | Backup download and restore |
+## Validation
 
-## Important limitations
+With Node.js 22:
 
-- **No real facial recognition or camera capture.** Student portraits are generated illustrations, not photographs.
-- **No backend or database.** Attendance and account changes reset when the page reloads.
-- **No real security.** The demo login does not validate credentials or enforce server-side authorization.
-- **No university integration.** Course data, students, sync operations, and administrative tools are simulations.
-- Reports can be exported as CSV; PDF output uses the browser's print/save-as-PDF function.
-- The prototype is **not suitable for real student attendance or biometric processing**.
+```sh
+node scripts/check-static.mjs
+```
 
-## Contributors
+The automated check covers the HTML entry point and inline script syntax. It does not measure recognition accuracy or certify end-to-end attendance behavior. For a manual check, follow the professor workflow above and inspect the administrator screens.
 
-Ricardo J. Lopez Ortiz and Miguel A. de Jesus Rosa — CPEN 491, Universidad Ana G. Méndez, Gurabo.
+## Collaboration and status
 
-## Contributing
+**Miguel A. De Jesus and Ricardo J. Lopez Ortiz** are the academic project collaborators. Shared project scope includes requirements/design work and the professor/administrator workflow represented by this prototype; no individual ownership of a specific subsystem is asserted here.
 
-For a change, open an issue describing the proposed improvement. Keep demo data fictional, preserve both user roles, and verify the navigation and review workflows in a browser before opening a pull request.
+**Status: simulated interface prototype · System in development.** Future implementation includes selecting hardware/software, developing recognition and storage, validating consent/privacy controls, and testing with authorized institutional requirements. Design targets are not measured results.
+
+[Portfolio](https://pologram1.github.io/POLO-TECH/) · [Contact Miguel](mailto:themiguel10101@gmail.com)
