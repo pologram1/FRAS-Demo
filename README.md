@@ -32,12 +32,15 @@ All people/courses are fictional. Capture, recognition, reference images, enroll
 
 | Path | Responsibility |
 | --- | --- |
-| `index.html` | Self-contained HTML shell, styling, rendering functions, fictional records, and client-side actions. |
-| `scripts/check-static.mjs` | Checks the entry page and compiles inline JavaScript syntax without executing the app. |
+| `index.html` | Login, navigation, and the content shell. |
+| `css/styles.css` | Responsive presentation and shared components. |
+| `js/app.js` | Fictional records, state, rendering, and client-side actions. |
+| `docs/ARCHITECTURE.md` | Detailed code structure and workflow guide. |
+| `scripts/check-static.mjs` | Checks the entry page, local assets, and JavaScript syntax without executing the app. |
 | `.github/workflows/validate.yml` | Runs static prototype checks on pushes and pull requests. |
 | `docs/images/preview.jpg` | Screenshot of the deployed prototype. |
 
-The prototype uses browser-side state and DOM rendering. It is deliberately independent of the eventual recognition pipeline, database, and hardware selection. The current self-contained structure makes it straightforward to run and compare against the presentation; extracting domain/state modules is a future step if the prototype grows.
+The prototype uses browser-side state and DOM rendering. It is deliberately independent of the eventual recognition pipeline, database, and hardware selection. HTML, CSS, and JavaScript are separated for readability. See the [architecture guide](docs/ARCHITECTURE.md) to follow the current workflows.
 
 ## Run locally
 
@@ -57,7 +60,7 @@ With Node.js 22:
 node scripts/check-static.mjs
 ```
 
-The automated check covers the HTML entry point and inline script syntax. It does not measure recognition accuracy or certify end-to-end attendance behavior. For a manual check, follow the professor workflow above and inspect the administrator screens.
+The automated check covers the HTML entry point, local stylesheet/script references, and JavaScript syntax. It does not measure recognition accuracy or certify end-to-end attendance behavior. For a manual check, follow the professor workflow above and inspect the administrator screens.
 
 ## Collaboration and status
 
